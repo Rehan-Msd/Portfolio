@@ -17,47 +17,47 @@
         :root {
             /* --- Mode Clair (Défaut) --- */
             --primary: #2563eb;          /* Bleu roi vibrant */
-            --primary-dark: #1e40af;     /* Bleu plus sombre au survol */
-            --secondary: #64748b;        /* Gris bleu pour texte secondaire */
-            --accent: #3b82f6;           /* Bleu clair pour détails */
+            --primary-dark: #1e40af;     /* Bleu plus sombre */
+            --secondary: #64748b;        /* Gris bleu */
+            --accent: #3b82f6;           /* Bleu clair */
             
-            --bg-body: #f8fafc;          /* Fond de page très clair (presque blanc) */
-            --bg-card: #ffffff;          /* Fond blanc pur pour les cartes */
-            --bg-glass: rgba(255, 255, 255, 0.9); /* Effet verre pour la navbar */
+            --bg-body: #f8fafc;          /* Fond page */
+            --bg-card: #ffffff;          /* Fond cartes */
+            --bg-glass: rgba(255, 255, 255, 0.95); /* Navbar */
             
-            --text-main: #0f172a;        /* Texte principal (bleu nuit très foncé) */
+            --text-main: #0f172a;        /* Texte principal */
             --text-muted: #64748b;       /* Texte secondaire */
             
-            --border: #e2e8f0;           /* Bordures grises très claires */
+            --border: #e2e8f0;           /* Bordures */
             
-            /* Ombres douces */
+            /* Ombres */
             --shadow-sm: 0 1px 3px rgba(0,0,0,0.1);
             --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.1);
             --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.1);
             
-            /* Dégradé Hero Section (Overlay sombre pour lisibilité sur image de marché) */
-            --hero-overlay: linear-gradient(135deg, rgba(10, 25, 60, 0.85) 0%, rgba(30, 64, 175, 0.8) 100%);
+            /* Overlay Hero (Plus transparent pour voir l'image) */
+            --hero-overlay: linear-gradient(135deg, rgba(17, 24, 39, 0.85) 0%, rgba(37, 99, 235, 0.75) 100%);
         }
 
         [data-theme="dark"] {
             /* --- Mode Sombre --- */
-            --primary: #60a5fa;          /* Bleu plus lumineux pour le contraste */
+            --primary: #60a5fa;
             --primary-dark: #3b82f6;
             
-            --bg-body: #0f172a;          /* Fond bleu nuit profond */
-            --bg-card: #1e293b;          /* Fond cartes gris-bleu foncé */
-            --bg-glass: rgba(15, 23, 42, 0.9);
+            --bg-body: #0f172a;
+            --bg-card: #1e293b;
+            --bg-glass: rgba(15, 23, 42, 0.95);
             
-            --text-main: #f1f5f9;        /* Texte blanc cassé */
-            --text-muted: #cbd5e1;       /* Texte gris clair */
+            --text-main: #f1f5f9;
+            --text-muted: #cbd5e1;
             
-            --border: #334155;           /* Bordures plus sombres */
+            --border: #334155;
             
             --shadow-sm: none;
             --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.5);
             --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.5);
             
-            --hero-overlay: linear-gradient(135deg, rgba(15, 23, 42, 0.9) 0%, rgba(30, 58, 138, 0.85) 100%);
+            --hero-overlay: linear-gradient(135deg, rgba(15, 23, 42, 0.9) 0%, rgba(30, 58, 138, 0.8) 100%);
         }
 
         /* =========================================
@@ -82,25 +82,25 @@
            3. LAYOUT
            ========================================= */
         .container {
-            max-width: 1000px;
+            max-width: 1100px;
             margin: 0 auto;
             padding: 0 20px;
         }
 
         section {
-            padding: 70px 0;
+            padding: 80px 0;
             opacity: 0;
             transform: translateY(20px);
             animation: fadeInUp 0.8s forwards;
         }
 
-        /* Titres de section centrés avec soulignement */
         h2 {
-            font-size: 2rem;
+            font-size: 2.2rem;
             font-weight: 700;
             margin-bottom: 50px;
             text-align: center;
             position: relative;
+            color: var(--text-main);
         }
         
         h2::after {
@@ -112,6 +112,11 @@
             margin: 15px auto 0;
             border-radius: 2px;
         }
+        
+        h2 i {
+            color: var(--primary);
+            margin-right: 10px;
+        }
 
         /* =========================================
            4. NAVBAR
@@ -119,9 +124,9 @@
         .navbar {
             position: sticky;
             top: 0;
-            z-index: 100;
+            z-index: 1000;
             background: var(--bg-glass);
-            backdrop-filter: blur(10px);
+            backdrop-filter: blur(12px);
             border-bottom: 1px solid var(--border);
             transition: background 0.3s, border-color 0.3s;
         }
@@ -130,7 +135,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            height: 70px;
+            height: 75px;
         }
 
         .logo {
@@ -146,12 +151,31 @@
             align-items: center;
         }
 
-        .nav-menu a {
+        .nav-link {
             font-weight: 500;
             font-size: 0.95rem;
             color: var(--text-muted);
+            padding: 8px 0;
+            position: relative;
         }
-        .nav-menu a:hover { color: var(--primary); }
+        
+        .nav-link:hover { color: var(--primary); }
+        
+        /* Bouton CV dans la navbar */
+        .nav-btn-cv {
+            background-color: var(--primary);
+            color: white !important;
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: transform 0.2s, background-color 0.2s;
+        }
+        
+        .nav-btn-cv:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-1px);
+        }
 
         .theme-toggle {
             background: transparent;
@@ -169,84 +193,89 @@
         .theme-toggle:hover { background: var(--bg-card); border-color: var(--primary); }
 
         /* =========================================
-           5. HERO SECTION (Nouveau background Market Finance)
+           5. HERO SECTION (FINANCE DE MARCHÉ)
            ========================================= */
         .hero {
-            /* Image de fond : Écrans de trading / Chandeliers japonais */
+            /* Image de fond : Finance / Trading / Charts */
             background: var(--hero-overlay), url('https://images.unsplash.com/photo-1611974765270-ca1258634369?q=80&w=1920&auto=format&fit=crop');
             background-size: cover;
             background-position: center;
             color: white;
-            padding: 140px 0 100px;
+            padding: 160px 0 120px;
             text-align: center;
-            border-radius: 0 0 40px 40px;
+            border-radius: 0 0 50px 50px;
             margin-bottom: 60px;
             box-shadow: var(--shadow-lg);
+            position: relative;
         }
 
         .hero h1 {
-            font-size: 3.5rem;
+            font-size: 3.8rem;
             font-weight: 800;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
             letter-spacing: -1px;
-            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+            text-shadow: 0 4px 15px rgba(0,0,0,0.3);
         }
 
         .hero p {
-            font-size: 1.25rem;
+            font-size: 1.3rem;
             opacity: 0.95;
-            max-width: 600px;
-            margin: 0 auto 40px;
+            max-width: 700px;
+            margin: 0 auto 45px;
             font-weight: 400;
+            line-height: 1.8;
         }
 
         .hero-badges {
             display: flex;
             justify-content: center;
-            gap: 12px;
+            gap: 15px;
             flex-wrap: wrap;
         }
 
         .badge {
-            background: rgba(255, 255, 255, 0.15);
-            padding: 8px 20px;
-            border-radius: 30px;
-            font-size: 0.9rem;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 10px 22px;
+            border-radius: 50px;
+            font-size: 0.95rem;
             font-weight: 500;
-            backdrop-filter: blur(5px);
+            backdrop-filter: blur(8px);
             border: 1px solid rgba(255, 255, 255, 0.2);
             display: flex;
             align-items: center;
-            gap: 8px;
-            transition: transform 0.3s;
+            gap: 10px;
+            transition: transform 0.3s, background 0.3s;
         }
-        .badge:hover { transform: translateY(-3px); background: rgba(255, 255, 255, 0.25); }
-        .badge i { color: #93c5fd; }
+        .badge:hover { transform: translateY(-3px); background: rgba(255, 255, 255, 0.2); }
+        .badge i { color: #60a5fa; font-size: 1.1rem; }
 
         /* =========================================
            6. ABOUT CARD
            ========================================= */
         .about-card {
             background: var(--bg-card);
-            padding: 40px;
+            padding: 50px;
             border-radius: 24px;
             box-shadow: var(--shadow-md);
             text-align: center;
-            max-width: 800px;
+            max-width: 900px;
             margin: 0 auto;
             border: 1px solid var(--border);
         }
-        .about-text { font-size: 1.1rem; margin-bottom: 25px; line-height: 1.8; }
-        .highlight { color: var(--primary); font-weight: 600; }
+        .about-text { font-size: 1.15rem; margin-bottom: 30px; line-height: 1.8; color: var(--text-main); }
+        .highlight { color: var(--primary); font-weight: 700; }
         
         .status-badge {
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
             padding: 12px 24px;
-            background: rgba(37, 99, 235, 0.1);
+            background: rgba(37, 99, 235, 0.08);
             border-radius: 12px;
             color: var(--primary);
             font-weight: 600;
-            font-size: 0.95rem;
+            font-size: 1rem;
+            border: 1px solid rgba(37, 99, 235, 0.1);
         }
 
         /* =========================================
@@ -254,18 +283,17 @@
            ========================================= */
         .timeline {
             position: relative;
-            max-width: 700px;
+            max-width: 750px;
             margin: 0 auto;
             padding: 20px 0;
         }
 
-        /* Ligne verticale */
         .timeline::before {
             content: '';
             position: absolute;
             top: 0;
             bottom: 0;
-            left: 24px;
+            left: 29px;
             width: 2px;
             background: var(--border);
         }
@@ -273,25 +301,24 @@
         .timeline-item {
             position: relative;
             margin-bottom: 50px;
-            padding-left: 70px;
+            padding-left: 80px;
         }
 
-        /* Point sur la timeline */
         .timeline-dot {
             position: absolute;
-            left: 15px;
-            top: 5px;
+            left: 20px;
+            top: 0px;
             width: 20px;
             height: 20px;
             background: var(--primary);
             border-radius: 50%;
-            border: 4px solid var(--bg-body); /* Crée l'effet d'anneau */
+            border: 4px solid var(--bg-body);
             box-shadow: 0 0 0 1px var(--primary);
             transition: background 0.3s;
         }
 
         .timeline-date {
-            font-size: 0.85rem;
+            font-size: 0.9rem;
             font-weight: 700;
             color: var(--primary);
             text-transform: uppercase;
@@ -300,9 +327,9 @@
             display: block;
         }
 
-        .timeline-content h3 { font-size: 1.2rem; margin-bottom: 5px; color: var(--text-main); font-weight: 700; }
-        .timeline-content p { color: var(--text-muted); font-size: 1rem; margin: 0; }
-        .timeline-desc { margin-top: 8px; font-size: 0.9rem; color: var(--text-muted); font-style: italic; }
+        .timeline-content h3 { font-size: 1.25rem; margin-bottom: 5px; color: var(--text-main); font-weight: 700; }
+        .timeline-content p { color: var(--text-muted); font-size: 1.05rem; margin: 0; }
+        .timeline-desc { margin-top: 10px; font-size: 0.95rem; color: var(--text-muted); font-style: italic; line-height: 1.5; }
 
         /* =========================================
            8. PROJECTS CARDS
@@ -316,7 +343,7 @@
         .card {
             background: var(--bg-card);
             border-radius: 20px;
-            padding: 30px;
+            padding: 35px;
             border: 1px solid var(--border);
             transition: all 0.3s ease;
             box-shadow: var(--shadow-sm);
@@ -332,9 +359,8 @@
             border-color: var(--primary);
         }
 
-        /* Conteneur pour logo/icône */
         .card-header {
-            height: 60px;
+            height: 65px;
             display: flex;
             align-items: center;
             margin-bottom: 25px;
@@ -342,19 +368,18 @@
 
         .logo-img {
             max-height: 100%;
-            max-width: 140px;
+            max-width: 160px;
             object-fit: contain;
             object-position: left;
         }
         
-        /* Icône fallback */
         .icon-fallback {
             font-size: 2.5rem;
             color: var(--primary);
         }
 
-        .card h3 { font-size: 1.4rem; margin-bottom: 8px; font-weight: 700; }
-        .card h4 { font-size: 0.95rem; color: var(--primary); margin-bottom: 15px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
+        .card h3 { font-size: 1.4rem; margin-bottom: 8px; font-weight: 700; color: var(--text-main); }
+        .card h4 { font-size: 0.9rem; color: var(--primary); margin-bottom: 15px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
         .card p { color: var(--text-muted); font-size: 1rem; margin-bottom: 30px; flex-grow: 1; line-height: 1.6; }
 
         /* =========================================
@@ -445,10 +470,14 @@
         }
         
         @media (max-width: 768px) {
-            .hero h1 { font-size: 2.5rem; }
+            .hero h1 { font-size: 2.8rem; }
             .nav-menu { gap: 15px; }
-            .nav-menu a { font-size: 0.85rem; }
+            .nav-link { font-size: 0.85rem; }
+            .nav-btn-cv { padding: 6px 12px; font-size: 0.85rem; }
             .grid { grid-template-columns: 1fr; }
+            .timeline::before { left: 19px; }
+            .timeline-item { padding-left: 60px; }
+            .timeline-dot { left: 10px; }
         }
     </style>
 </head>
@@ -459,9 +488,13 @@
         <div class="container nav-container">
             <a href="#" class="logo">RM.</a>
             <div class="nav-menu">
-                <a href="#about">À Propos</a>
-                <a href="#parcours">Parcours</a>
-                <a href="#projets">Projets</a>
+                <a href="#about" class="nav-link">À Propos</a>
+                <a href="#parcours" class="nav-link">Parcours</a>
+                <a href="#projets" class="nav-link">Projets</a>
+                <!-- Lien CV clickable en haut à droite -->
+                <a href="#cv" class="nav-btn-cv">
+                    <i class="fas fa-file-alt"></i> Mon CV
+                </a>
                 <button class="theme-toggle" id="themeToggle" aria-label="Changer de thème">
                     <i class="fas fa-moon"></i>
                 </button>
@@ -469,12 +502,13 @@
         </div>
     </nav>
 
-    <!-- HERO HEADER -->
+    <!-- HERO HEADER (Finance de Marché) -->
     <header class="hero">
         <div class="container">
             <h1>Rehan Masood</h1>
             <p>Étudiant en Master 2 Finance — Analyse des Risques de Marché</p>
             
+            <!-- Badges avec icônes Pro (sans emojis) -->
             <div class="hero-badges">
                 <span class="badge"><i class="fas fa-chart-line"></i> Économétrie</span>
                 <span class="badge"><i class="fas fa-code"></i> Python & VBA</span>
@@ -486,28 +520,28 @@
 
     <div class="container">
 
-        <!-- SECTION À PROPOS -->
+        <!-- SECTION À PROPOS (Sans emoji) -->
         <section id="about">
-            <h2>👋 À Propos de moi</h2>
+            <h2><i class="fas fa-user"></i> À Propos de moi</h2>
             <div class="about-card">
                 <p class="about-text">
                     Actuellement en Master 2 à l'<strong>Université de Montpellier</strong>, je me spécialise dans la modélisation financière et l'analyse quantitative des risques. 
                     Fort de mes expériences chez <span class="highlight">BRED</span> et <span class="highlight">BNP Paribas</span>, je cherche à appliquer mes compétences techniques (Python, VBA, GARCH/VaR) dans un environnement stimulant.
                 </p>
                 <div class="status-badge">
-                    🎯 Recherche stage de fin d'études (4-6 mois) dès Janvier 2026
+                    <i class="fas fa-bullseye"></i> Recherche stage de fin d'études (4-6 mois) dès Janvier 2026
                 </div>
             </div>
         </section>
 
-        <!-- SECTION PARCOURS (TIMELINE) -->
+        <!-- SECTION PARCOURS (Sans emoji) -->
         <section id="parcours">
-            <h2>🎓 Parcours & Expériences</h2>
+            <h2><i class="fas fa-graduation-cap"></i> Parcours & Expériences</h2>
             <div class="timeline">
                 <!-- Item 1 -->
                 <div class="timeline-item">
                     <div class="timeline-dot"></div>
-                    <div class="timeline-date">2024 – 2026</div>
+                    <span class="timeline-date">2024 – 2026</span>
                     <div class="timeline-content">
                         <h3>Master Monnaie Banque Finance Assurance</h3>
                         <p>Université de Montpellier</p>
@@ -517,7 +551,7 @@
                 <!-- Item 2 -->
                 <div class="timeline-item">
                     <div class="timeline-dot"></div>
-                    <div class="timeline-date">Juin – Juillet 2025</div>
+                    <span class="timeline-date">Juin – Juillet 2025</span>
                     <div class="timeline-content">
                         <h3>Auxiliaire d'Été — BRED Banque Populaire</h3>
                         <p>Paris</p>
@@ -527,7 +561,7 @@
                 <!-- Item 3 -->
                 <div class="timeline-item">
                     <div class="timeline-dot"></div>
-                    <div class="timeline-date">Étés 2022 – 2024</div>
+                    <span class="timeline-date">Étés 2022 – 2024</span>
                     <div class="timeline-content">
                         <h3>Auxiliaire de Vacances — BNP Paribas Cardif</h3>
                         <p>Nanterre</p>
@@ -537,7 +571,7 @@
                 <!-- Item 4 -->
                 <div class="timeline-item">
                     <div class="timeline-dot"></div>
-                    <div class="timeline-date">2021 – 2024</div>
+                    <span class="timeline-date">2021 – 2024</span>
                     <div class="timeline-content">
                         <h3>Licence Économie-Gestion</h3>
                         <p>Université Paris Nanterre</p>
@@ -547,19 +581,19 @@
             </div>
         </section>
 
-        <!-- SECTION PROJETS -->
+        <!-- SECTION PROJETS (Sans emoji) -->
         <section id="projets">
-            <h2>📚 Projets Académiques</h2>
+            <h2><i class="fas fa-folder-open"></i> Projets Académiques</h2>
             <div class="grid">
                 
-                <!-- Projet 1 : Tesla (Avec Logo Tesla Rouge) -->
+                <!-- Projet 1 : Tesla (Logo Tesla Rouge) -->
                 <div class="card">
                     <div class="card-header">
-                        <!-- Filtre CSS pour transformer le logo noir en Rouge Tesla (#E82127) -->
+                        <!-- Logo Tesla Blanc transformé en Rouge (#cc0000) via filtres CSS -->
                         <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Tesla_logo.png/600px-Tesla_logo.png" 
                              alt="Logo Tesla" 
                              class="logo-img"
-                             style="filter: brightness(0) saturate(100%) invert(18%) sepia(94%) saturate(6337%) hue-rotate(354deg) brightness(93%) contrast(93%); opacity: 0.9;">
+                             style="filter: brightness(0) saturate(100%) invert(14%) sepia(96%) saturate(4544%) hue-rotate(356deg) brightness(96%) contrast(116%); opacity: 1;">
                     </div>
                     <h3>Tesla Inc. — Économétrie</h3>
                     <h4>Analyse du risque & Volatilité</h4>
@@ -569,7 +603,7 @@
                     </a>
                 </div>
 
-                <!-- Projet 2 : Allocation (Avec Icône Pro) -->
+                <!-- Projet 2 : Allocation (Icône Pro) -->
                 <div class="card">
                     <div class="card-header">
                         <i class="fas fa-briefcase icon-fallback"></i>
@@ -582,10 +616,10 @@
                     </a>
                 </div>
 
-                <!-- Projet 3 : Transition (Avec Logo Uploadé) -->
+                <!-- Projet 3 : Transition (Logo Joint) -->
                 <div class="card">
                     <div class="card-header">
-                        <!-- Utilisation du nom exact de votre fichier uploadé -->
+                        <!-- Logo Uploadé -->
                         <img src="20251115_1322_Logo_Finance_Énergie_simple_compose_01ka3qd29me4fr4rsbbdhmn2mz-removebg-preview.png" 
                              alt="Logo Finance & Énergie" 
                              class="logo-img">
@@ -601,9 +635,9 @@
             </div>
         </section>
 
-        <!-- SECTION CV -->
+        <!-- SECTION CV (Sans emoji) -->
         <section id="cv" style="text-align: center; padding-bottom: 40px;">
-            <h2>📄 Curriculum Vitae</h2>
+            <h2><i class="fas fa-file-contract"></i> Curriculum Vitae</h2>
             <p style="color: var(--text-muted); margin-bottom: 40px; font-size: 1.1rem;">
                 Téléchargez mon CV pour en savoir plus sur mon parcours et mes compétences.
             </p>
