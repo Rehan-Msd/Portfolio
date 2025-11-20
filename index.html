@@ -21,7 +21,7 @@
             --secondary: #64748b;        /* Gris bleu pour texte secondaire */
             --accent: #3b82f6;           /* Bleu clair pour détails */
             
-            --bg-body: #f8fafc;          /* Fond de page très clair (presque blanc) */
+            --bg-body: #f8fafc;          /* Fond de page très clair */
             --bg-card: #ffffff;          /* Fond blanc pur pour les cartes */
             --bg-glass: rgba(255, 255, 255, 0.95); /* Navbar */
             
@@ -30,34 +30,34 @@
             
             --border: #e2e8f0;           /* Bordures grises très claires */
             
-            /* Ombres douces */
+            /* Ombres */
             --shadow-sm: 0 1px 3px rgba(0,0,0,0.1);
             --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.1);
             --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.1);
             
-            /* Dégradé Hero Section (Overlay sombre pour lisibilité sur image de marché) */
-            --hero-overlay: linear-gradient(135deg, rgba(10, 25, 60, 0.85) 0%, rgba(30, 64, 175, 0.8) 100%);
+            /* Dégradé Hero Section (Plus sombre pour contraste trading) */
+            --hero-overlay: linear-gradient(135deg, rgba(15, 23, 42, 0.9) 0%, rgba(30, 58, 138, 0.8) 100%);
         }
 
         [data-theme="dark"] {
             /* --- Mode Sombre --- */
-            --primary: #60a5fa;          /* Bleu plus lumineux pour le contraste */
+            --primary: #60a5fa;
             --primary-dark: #3b82f6;
             
-            --bg-body: #0f172a;          /* Fond bleu nuit profond */
-            --bg-card: #1e293b;          /* Fond cartes gris-bleu foncé */
+            --bg-body: #0f172a;
+            --bg-card: #1e293b;
             --bg-glass: rgba(15, 23, 42, 0.95);
             
-            --text-main: #f1f5f9;        /* Texte blanc cassé */
-            --text-muted: #cbd5e1;       /* Texte gris clair */
+            --text-main: #f1f5f9;
+            --text-muted: #cbd5e1;
             
-            --border: #334155;           /* Bordures plus sombres */
+            --border: #334155;
             
             --shadow-sm: none;
             --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.5);
             --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.5);
             
-            --hero-overlay: linear-gradient(135deg, rgba(15, 23, 42, 0.9) 0%, rgba(30, 58, 138, 0.85) 100%);
+            --hero-overlay: linear-gradient(135deg, rgba(10, 15, 30, 0.95) 0%, rgba(30, 58, 138, 0.85) 100%);
         }
 
         /* =========================================
@@ -115,7 +115,7 @@
         
         h2 i {
             color: var(--primary);
-            margin-right: 10px;
+            margin-right: 12px;
         }
 
         /* =========================================
@@ -147,7 +147,7 @@
 
         .nav-menu {
             display: flex;
-            gap: 30px;
+            gap: 25px;
             align-items: center;
         }
 
@@ -157,6 +157,7 @@
             color: var(--text-muted);
             padding: 8px 0;
             position: relative;
+            transition: color 0.3s;
         }
         
         .nav-link:hover { color: var(--primary); }
@@ -165,16 +166,18 @@
         .nav-btn-cv {
             background-color: var(--primary);
             color: white !important;
-            padding: 8px 16px;
-            border-radius: 6px;
+            padding: 10px 20px;
+            border-radius: 8px;
             font-weight: 600;
             font-size: 0.9rem;
-            transition: transform 0.2s, background-color 0.2s;
+            transition: transform 0.2s, background-color 0.2s, box-shadow 0.2s;
+            box-shadow: 0 2px 5px rgba(37, 99, 235, 0.2);
         }
         
         .nav-btn-cv:hover {
             background-color: var(--primary-dark);
-            transform: translateY(-1px);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(37, 99, 235, 0.3);
         }
 
         .theme-toggle {
@@ -189,6 +192,7 @@
             align-items: center;
             justify-content: center;
             transition: 0.3s;
+            margin-left: 10px;
         }
         .theme-toggle:hover { background: var(--bg-card); border-color: var(--primary); }
 
@@ -196,7 +200,7 @@
            5. HERO SECTION (FINANCE DE MARCHÉ)
            ========================================= */
         .hero {
-            /* Image de fond : Finance / Trading / Charts */
+            /* Image de fond : Écran Trading / Chandeliers (Source Unsplash) */
             background: var(--hero-overlay), url('https://images.unsplash.com/photo-1611974765270-ca1258634369?q=80&w=1920&auto=format&fit=crop');
             background-size: cover;
             background-position: center;
@@ -210,7 +214,7 @@
         }
 
         .hero h1 {
-            font-size: 3.8rem;
+            font-size: 3.5rem;
             font-weight: 800;
             margin-bottom: 20px;
             letter-spacing: -1px;
@@ -223,7 +227,7 @@
             max-width: 700px;
             margin: 0 auto 45px;
             font-weight: 400;
-            line-height: 1.8;
+            line-height: 1.6;
         }
 
         .hero-badges {
@@ -279,11 +283,11 @@
         }
 
         /* =========================================
-           7. TIMELINE (AVEC LOGOS)
+           7. TIMELINE (AVEC LOGOS LOCAUX)
            ========================================= */
         .timeline {
             position: relative;
-            max-width: 800px;
+            max-width: 750px;
             margin: 0 auto;
             padding: 20px 0;
         }
@@ -327,7 +331,7 @@
             display: block;
         }
         
-        /* Nouveau style pour le header de la timeline (Logo + Titre) */
+        /* Style Header Timeline (Logo + Titre) */
         .timeline-header {
             display: flex;
             align-items: center;
@@ -336,17 +340,17 @@
         }
 
         .timeline-logo {
-            width: 40px;
-            height: 40px;
+            width: 45px;
+            height: 45px;
             object-fit: contain;
-            /* Fond blanc pour assurer la visibilité des logos transparents en mode sombre */
             background: white; 
             border-radius: 8px;
-            padding: 2px;
+            padding: 4px;
             box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border);
         }
 
-        .timeline-content h3 { font-size: 1.25rem; margin-bottom: 0; color: var(--text-main); font-weight: 700; }
+        .timeline-content h3 { font-size: 1.2rem; margin-bottom: 0; color: var(--text-main); font-weight: 700; }
         .timeline-content p { color: var(--text-muted); font-size: 1.05rem; margin: 0; }
         .timeline-desc { margin-top: 10px; font-size: 0.95rem; color: var(--text-muted); font-style: italic; line-height: 1.5; }
 
@@ -490,9 +494,11 @@
         
         @media (max-width: 768px) {
             .hero h1 { font-size: 2.8rem; }
-            .nav-menu { gap: 15px; }
+            .nav-menu { display: none; } /* Menu mobile à implémenter si besoin */
+            /* Simple menu fix for mobile to show at least theme and CV */
+            .nav-container { justify-content: center; flex-wrap: wrap; gap: 10px; height: auto; padding: 10px; }
+            .nav-menu { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; }
             .nav-link { font-size: 0.85rem; }
-            .nav-btn-cv { padding: 6px 12px; font-size: 0.85rem; }
             .grid { grid-template-columns: 1fr; }
             .timeline::before { left: 19px; }
             .timeline-item { padding-left: 60px; }
@@ -510,10 +516,12 @@
                 <a href="#about" class="nav-link">À Propos</a>
                 <a href="#parcours" class="nav-link">Parcours</a>
                 <a href="#projets" class="nav-link">Projets</a>
-                <!-- Lien CV clickable en haut à droite -->
+                
+                <!-- BOUTON CV CLICKABLE -->
                 <a href="#cv" class="nav-btn-cv">
-                    <i class="fas fa-file-alt"></i> Mon CV
+                    <i class="fas fa-download"></i> Mon CV
                 </a>
+                
                 <button class="theme-toggle" id="themeToggle" aria-label="Changer de thème">
                     <i class="fas fa-moon"></i>
                 </button>
@@ -521,13 +529,12 @@
         </div>
     </nav>
 
-    <!-- HERO HEADER (Finance de Marché) -->
+    <!-- HERO HEADER (FINANCE DE MARCHÉ) -->
     <header class="hero">
         <div class="container">
             <h1>Rehan Masood</h1>
             <p>Étudiant en Master 2 Finance — Analyse des Risques de Marché</p>
             
-            <!-- Badges avec icônes Pro (sans emojis) -->
             <div class="hero-badges">
                 <span class="badge"><i class="fas fa-chart-line"></i> Économétrie</span>
                 <span class="badge"><i class="fas fa-code"></i> Python & VBA</span>
@@ -539,7 +546,7 @@
 
     <div class="container">
 
-        <!-- SECTION À PROPOS (Sans emoji) -->
+        <!-- SECTION À PROPOS (Clean, pas d'emoji) -->
         <section id="about">
             <h2><i class="fas fa-user"></i> À Propos de moi</h2>
             <div class="about-card">
@@ -553,56 +560,56 @@
             </div>
         </section>
 
-        <!-- SECTION PARCOURS (Avec Logos) -->
+        <!-- SECTION PARCOURS (Avec Logos Locaux) -->
         <section id="parcours">
             <h2><i class="fas fa-graduation-cap"></i> Parcours & Expériences</h2>
             <div class="timeline">
-                <!-- Item 1 -->
+                <!-- Item 1 : Univ Montpellier -->
                 <div class="timeline-item">
                     <div class="timeline-dot"></div>
                     <span class="timeline-date">2024 – 2026</span>
                     <div class="timeline-content">
                         <div class="timeline-header">
-                            <img src="https://github.com/Rehan-Msd/Portfolio/blob/main/UM.png" alt="Univ Montpellier" class="timeline-logo">
+                            <img src="UM.png" alt="Université de Montpellier" class="timeline-logo">
                             <h3>Master Monnaie Banque Finance Assurance</h3>
                         </div>
                         <p>Université de Montpellier</p>
                         <p class="timeline-desc">Parcours Analyse des Risques de Marché. Calcul Stochastique, Valorisation d'actifs, Économétrie.</p>
                     </div>
                 </div>
-                <!-- Item 2 -->
+                <!-- Item 2 : BRED -->
                 <div class="timeline-item">
                     <div class="timeline-dot"></div>
                     <span class="timeline-date">Juin – Juillet 2025</span>
                     <div class="timeline-content">
                         <div class="timeline-header">
-                             <img src="https://github.com/Rehan-Msd/Portfolio/blob/main/BRED3.png" alt="BRED" class="timeline-logo">
+                             <img src="BRED3.png" alt="BRED Banque Populaire" class="timeline-logo">
                              <h3>Auxiliaire d'Été — BRED Banque Populaire</h3>
                         </div>
                         <p>Paris</p>
                         <p class="timeline-desc">Assistant au service de paie et d'ADP. Gestion des entrées/sorties collaborateurs.</p>
                     </div>
                 </div>
-                <!-- Item 3 -->
+                <!-- Item 3 : BNP Paribas -->
                 <div class="timeline-item">
                     <div class="timeline-dot"></div>
                     <span class="timeline-date">Étés 2022 – 2024</span>
                     <div class="timeline-content">
                          <div class="timeline-header">
-                            <img src="https://github.com/Rehan-Msd/Portfolio/blob/main/BNPC.png" alt="BNP Paribas" class="timeline-logo">
+                            <img src="BNPC.png" alt="BNP Paribas Cardif" class="timeline-logo">
                             <h3>Auxiliaire de Vacances — BNP Paribas Cardif</h3>
                         </div>
                         <p>Nanterre</p>
                         <p class="timeline-desc">Analyse de données et création de Dashboard (Excel/PowerBI) pour le service achats.</p>
                     </div>
                 </div>
-                <!-- Item 4 -->
+                <!-- Item 4 : Univ Paris Nanterre -->
                 <div class="timeline-item">
                     <div class="timeline-dot"></div>
                     <span class="timeline-date">2021 – 2024</span>
                     <div class="timeline-content">
                         <div class="timeline-header">
-                             <img src="https://github.com/Rehan-Msd/Portfolio/blob/main/UPN.png" alt="Paris Nanterre" class="timeline-logo">
+                             <img src="UPN.png" alt="Université Paris Nanterre" class="timeline-logo">
                              <h3>Licence Économie-Gestion</h3>
                         </div>
                         <p>Université Paris Nanterre</p>
@@ -617,10 +624,10 @@
             <h2><i class="fas fa-folder-open"></i> Projets Académiques</h2>
             <div class="grid">
                 
-                <!-- Projet 1 : Tesla (Logo Tesla Rouge) -->
+                <!-- Projet 1 : Tesla (Logo Rouge) -->
                 <div class="card">
                     <div class="card-header">
-                        <!-- Logo Tesla Blanc transformé en Rouge (#cc0000) via filtres CSS -->
+                        <!-- Logo Tesla rouge via filtres CSS sur image wikimedia -->
                         <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Tesla_logo.png/600px-Tesla_logo.png" 
                              alt="Logo Tesla" 
                              class="logo-img"
@@ -647,10 +654,10 @@
                     </a>
                 </div>
 
-                <!-- Projet 3 : Transition (Logo Joint) -->
+                <!-- Projet 3 : Transition (Logo Perso) -->
                 <div class="card">
                     <div class="card-header">
-                        <!-- Logo Uploadé -->
+                        <!-- Utilisation du logo uploadé (nom exact) -->
                         <img src="20251115_1322_Logo_Finance_Énergie_simple_compose_01ka3qd29me4fr4rsbbdhmn2mz-removebg-preview.png" 
                              alt="Logo Finance & Énergie" 
                              class="logo-img">
