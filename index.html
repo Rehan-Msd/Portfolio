@@ -3,12 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfolio de Rehan Masood - Étudiant Master 2 Finance, Analyse des Risques et Gestion d'Actifs.">
     <title>Portfolio Finance | Rehan Masood</title>
     
-    <!-- Font Awesome pour les icônes -->
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Google Fonts (Inter) -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     
     <style>
         /* =========================================
@@ -16,26 +17,26 @@
            ========================================= */
         :root {
             /* --- Mode Clair (Défaut) --- */
-            --primary: #2563eb;          /* Bleu roi vibrant */
-            --primary-dark: #1e40af;     /* Bleu plus sombre au survol */
-            --secondary: #64748b;        /* Gris bleu pour texte secondaire */
-            --accent: #3b82f6;           /* Bleu clair pour détails */
+            --primary: #2563eb;          
+            --primary-dark: #1e40af;     
+            --secondary: #64748b;        
+            --accent: #3b82f6;            
             
-            --bg-body: #f8fafc;          /* Fond de page très clair */
-            --bg-card: #ffffff;          /* Fond blanc pur pour les cartes */
-            --bg-glass: rgba(255, 255, 255, 0.95); /* Navbar */
+            --bg-body: #f8fafc;          
+            --bg-card: #ffffff;          
+            --bg-glass: rgba(255, 255, 255, 0.90); 
             
-            --text-main: #0f172a;        /* Texte principal (bleu nuit très foncé) */
-            --text-muted: #64748b;       /* Texte secondaire */
+            --text-main: #0f172a;        
+            --text-muted: #64748b;       
             
-            --border: #e2e8f0;           /* Bordures grises très claires */
+            --border: #e2e8f0;            
             
             /* Ombres */
             --shadow-sm: 0 1px 3px rgba(0,0,0,0.1);
             --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.1);
             --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.1);
             
-            /* Dégradé Hero Section (Plus sombre pour contraste trading) */
+            /* Dégradé Hero */
             --hero-overlay: linear-gradient(135deg, rgba(15, 23, 42, 0.9) 0%, rgba(30, 58, 138, 0.8) 100%);
         }
 
@@ -46,7 +47,7 @@
             
             --bg-body: #0f172a;
             --bg-card: #1e293b;
-            --bg-glass: rgba(15, 23, 42, 0.95);
+            --bg-glass: rgba(15, 23, 42, 0.90);
             
             --text-main: #f1f5f9;
             --text-muted: #cbd5e1;
@@ -72,11 +73,20 @@
             color: var(--text-main);
             line-height: 1.6;
             transition: background-color 0.3s ease, color 0.3s ease;
+            overflow-x: hidden;
         }
 
         a { text-decoration: none; color: inherit; transition: 0.2s; }
         ul { list-style: none; }
         img { max-width: 100%; display: block; }
+
+        /* Widget TradingView Wrapper */
+        .tradingview-widget-container {
+            height: 40px;
+            width: 100%;
+            position: relative;
+            z-index: 1001;
+        }
 
         /* =========================================
            3. LAYOUT
@@ -123,7 +133,7 @@
            ========================================= */
         .navbar {
             position: sticky;
-            top: 0;
+            top: 0; /* Just below widget if needed, otherwise standard sticky */
             z-index: 1000;
             background: var(--bg-glass);
             backdrop-filter: blur(12px);
@@ -162,7 +172,6 @@
         
         .nav-link:hover { color: var(--primary); }
         
-        /* Bouton CV dans la navbar */
         .nav-btn-cv {
             background-color: var(--primary);
             color: white !important;
@@ -197,10 +206,9 @@
         .theme-toggle:hover { background: var(--bg-card); border-color: var(--primary); }
 
         /* =========================================
-           5. HERO SECTION (FINANCE DE MARCHÉ)
+           5. HERO SECTION
            ========================================= */
         .hero {
-            /* Image de fond : Écran Trading / Chandeliers (Source Unsplash) */
             background: var(--hero-overlay), url('https://images.unsplash.com/photo-1611974765270-ca1258634369?q=80&w=1920&auto=format&fit=crop');
             background-size: cover;
             background-position: center;
@@ -228,7 +236,17 @@
             margin: 0 auto 45px;
             font-weight: 400;
             line-height: 1.6;
+            min-height: 1.6em; /* Empêche le saut lors du typing */
         }
+
+        /* Effet curseur machine à écrire */
+        .type-cursor {
+            display: inline-block;
+            width: 2px;
+            background-color: #fff;
+            animation: blink 1s infinite;
+        }
+        @keyframes blink { 50% { opacity: 0; } }
 
         .hero-badges {
             display: flex;
@@ -283,7 +301,49 @@
         }
 
         /* =========================================
-           7. TIMELINE (AVEC LOGOS LOCAUX)
+           6b. NEW SKILLS SECTION
+           ========================================= */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 40px;
+        }
+        .skill-category {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 25px;
+            text-align: left;
+            transition: transform 0.2s;
+        }
+        .skill-category:hover { transform: translateY(-5px); box-shadow: var(--shadow-md); }
+        .skill-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--text-main);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        .skill-tag {
+            font-size: 0.85rem;
+            padding: 5px 12px;
+            background: var(--bg-body);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        /* =========================================
+           7. TIMELINE
            ========================================= */
         .timeline {
             position: relative;
@@ -318,7 +378,7 @@
             border-radius: 50%;
             border: 4px solid var(--bg-body);
             box-shadow: 0 0 0 1px var(--primary);
-            transition: background 0.3s;
+            transition: background 0.3s, border-color 0.3s;
         }
 
         .timeline-date {
@@ -331,7 +391,6 @@
             display: block;
         }
         
-        /* Style Header Timeline (Logo + Titre) */
         .timeline-header {
             display: flex;
             align-items: center;
@@ -447,7 +506,7 @@
         .flag-icon { font-size: 1.5rem; line-height: 1; }
 
         /* =========================================
-           10. FOOTER
+           10. FOOTER & SCROLL TOP
            ========================================= */
         footer {
             background: var(--bg-card);
@@ -484,6 +543,31 @@
             transform: translateY(-5px);
         }
 
+        /* Scroll to Top Button */
+        .scroll-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: var(--primary);
+            color: white;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(20px);
+            transition: all 0.3s;
+            z-index: 999;
+        }
+        .scroll-top.visible { opacity: 1; visibility: visible; transform: translateY(0); }
+        .scroll-top:hover { background: var(--primary-dark); transform: translateY(-5px); }
+
         /* =========================================
            11. ANIMATIONS & RESPONSIVE
            ========================================= */
@@ -494,8 +578,7 @@
         
         @media (max-width: 768px) {
             .hero h1 { font-size: 2.8rem; }
-            .nav-menu { display: none; } /* Menu mobile à implémenter si besoin */
-            /* Simple menu fix for mobile to show at least theme and CV */
+            .nav-menu { display: none; } 
             .nav-container { justify-content: center; flex-wrap: wrap; gap: 10px; height: auto; padding: 10px; }
             .nav-menu { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; }
             .nav-link { font-size: 0.85rem; }
@@ -503,10 +586,32 @@
             .timeline::before { left: 19px; }
             .timeline-item { padding-left: 60px; }
             .timeline-dot { left: 10px; }
+            .scroll-top { bottom: 20px; right: 20px; }
         }
     </style>
 </head>
 <body>
+
+    <!-- WIDGET TRADINGVIEW (AJOUT 1) -->
+    <div class="tradingview-widget-container">
+        <div class="tradingview-widget-container__widget"></div>
+        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
+        {
+        "symbols": [
+        { "proName": "FOREXCOM:SPXUSD", "title": "S&P 500" },
+        { "proName": "FOREXCOM:NSXUSD", "title": "US 100" },
+        { "proName": "FX_IDC:EURUSD", "title": "EUR/USD" },
+        { "proName": "BITSTAMP:BTCUSD", "title": "Bitcoin" },
+        { "proName": "TVC:CAC40", "title": "CAC 40" }
+        ],
+        "showSymbolLogo": true,
+        "isTransparent": false,
+        "displayMode": "adaptive",
+        "colorTheme": "dark",
+        "locale": "fr"
+        }
+        </script>
+    </div>
 
     <!-- NAVIGATION -->
     <nav class="navbar">
@@ -514,6 +619,7 @@
             <a href="#" class="logo">RM.</a>
             <div class="nav-menu">
                 <a href="#about" class="nav-link">À Propos</a>
+                <a href="#skills" class="nav-link">Compétences</a>
                 <a href="#parcours" class="nav-link">Parcours</a>
                 <a href="#projets" class="nav-link">Projets</a>
                 
@@ -529,11 +635,13 @@
         </div>
     </nav>
 
-    <!-- HERO HEADER (FINANCE DE MARCHÉ) -->
+    <!-- HERO HEADER (AJOUT 2: TYPEWRITER) -->
     <header class="hero">
         <div class="container">
             <h1>Rehan Masood</h1>
-            <p>Étudiant en Master 2 Finance — Analyse des Risques de Marché</p>
+            <p>
+                <span id="typewriter"></span><span class="type-cursor"></span>
+            </p>
             
             <div class="hero-badges">
                 <span class="badge"><i class="fas fa-chart-line"></i> Économétrie</span>
@@ -546,7 +654,7 @@
 
     <div class="container">
 
-        <!-- SECTION À PROPOS (Clean, pas d'emoji) -->
+        <!-- SECTION À PROPOS -->
         <section id="about">
             <h2><i class="fas fa-user"></i> À Propos de moi</h2>
             <div class="about-card">
@@ -560,7 +668,45 @@
             </div>
         </section>
 
-        <!-- SECTION PARCOURS (Avec Logos Locaux) -->
+        <!-- SECTION COMPÉTENCES (AJOUT 3) -->
+        <section id="skills">
+            <h2><i class="fas fa-tools"></i> Compétences & Outils</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <div class="skill-title"><i class="fas fa-code" style="color:var(--primary)"></i> Programmation</div>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Python (Pandas, NumPy, Matlib)</span>
+                        <span class="skill-tag">VBA / Excel Avancé</span>
+                        <span class="skill-tag">SQL</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <div class="skill-title"><i class="fas fa-chart-area" style="color:var(--primary)"></i> Finance & Data</div>
+                    <div class="skill-tags">
+                        <span class="skill-tag">PowerBI</span>
+                        <span class="skill-tag">Méthodes Numériques</span>
+                        <span class="skill-tag">Modélisation GARCH/VaR</span>
+                        <span class="skill-tag">Gestion de Portefeuille</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <div class="skill-title"><i class="fas fa-language" style="color:var(--primary)"></i> Langues</div>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Français (Natif)</span>
+                        <span class="skill-tag">Anglais (Professionnel)</span>
+                    </div>
+                </div>
+                <!-- AJOUT 4 : CERTIFICATIONS -->
+                <div class="skill-category" style="border-color: var(--primary);">
+                    <div class="skill-title"><i class="fas fa-certificate" style="color:var(--primary)"></i> Certifications</div>
+                    <div class="skill-tags">
+                        <span class="skill-tag" style="background: rgba(37,99,235,0.1); color:var(--primary)">TOEIC : 895/990</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION PARCOURS -->
         <section id="parcours">
             <h2><i class="fas fa-graduation-cap"></i> Parcours & Expériences</h2>
             <div class="timeline">
@@ -570,7 +716,7 @@
                     <span class="timeline-date">2024 – 2026</span>
                     <div class="timeline-content">
                         <div class="timeline-header">
-                            <img src="UM.png" alt="Université de Montpellier" class="timeline-logo">
+                            <img src="UM.png" alt="Université de Montpellier" class="timeline-logo" onerror="this.style.display='none'">
                             <h3>Master Monnaie Banque Finance Assurance</h3>
                         </div>
                         <p>Université de Montpellier</p>
@@ -583,7 +729,7 @@
                     <span class="timeline-date">Juin – Juillet 2025</span>
                     <div class="timeline-content">
                         <div class="timeline-header">
-                             <img src="BRED3.png" alt="BRED Banque Populaire" class="timeline-logo">
+                             <img src="BRED3.png" alt="BRED Banque Populaire" class="timeline-logo" onerror="this.style.display='none'">
                              <h3>Auxiliaire d'Été — BRED Banque Populaire</h3>
                         </div>
                         <p>Paris</p>
@@ -595,8 +741,8 @@
                     <div class="timeline-dot"></div>
                     <span class="timeline-date">Étés 2022 – 2024</span>
                     <div class="timeline-content">
-                         <div class="timeline-header">
-                            <img src="BNPC.png" alt="BNP Paribas Cardif" class="timeline-logo">
+                          <div class="timeline-header">
+                            <img src="BNPC.png" alt="BNP Paribas Cardif" class="timeline-logo" onerror="this.style.display='none'">
                             <h3>Auxiliaire de Vacances — BNP Paribas Cardif</h3>
                         </div>
                         <p>Nanterre</p>
@@ -609,7 +755,7 @@
                     <span class="timeline-date">2021 – 2024</span>
                     <div class="timeline-content">
                         <div class="timeline-header">
-                             <img src="UPN.png" alt="Université Paris Nanterre" class="timeline-logo">
+                             <img src="UPN.png" alt="Université Paris Nanterre" class="timeline-logo" onerror="this.style.display='none'">
                              <h3>Licence Économie-Gestion</h3>
                         </div>
                         <p>Université Paris Nanterre</p>
@@ -619,15 +765,14 @@
             </div>
         </section>
 
-        <!-- SECTION PROJETS (Sans emoji) -->
+        <!-- SECTION PROJETS -->
         <section id="projets">
             <h2><i class="fas fa-folder-open"></i> Projets Académiques</h2>
             <div class="grid">
                 
-                <!-- Projet 1 : Tesla (Logo Rouge) -->
+                <!-- Projet 1 : Tesla -->
                 <div class="card">
                     <div class="card-header">
-                        <!-- Logo Tesla rouge via filtres CSS sur image wikimedia -->
                         <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Tesla_logo.png/600px-Tesla_logo.png" 
                              alt="Logo Tesla" 
                              class="logo-img"
@@ -641,7 +786,7 @@
                     </a>
                 </div>
 
-                <!-- Projet 2 : Allocation (Icône Pro) -->
+                <!-- Projet 2 : Allocation -->
                 <div class="card">
                     <div class="card-header">
                         <i class="fas fa-briefcase icon-fallback"></i>
@@ -654,13 +799,14 @@
                     </a>
                 </div>
 
-                <!-- Projet 3 : Transition (Logo Perso) -->
+                <!-- Projet 3 : Transition -->
                 <div class="card">
                     <div class="card-header">
-                        <!-- Utilisation du logo uploadé (nom exact) -->
-                        <img src="20251115_1322_Logo_Finance_Énergie_simple_compose_01ka3qd29me4fr4rsbbdhmn2mz-removebg-preview.png" 
+                        <!-- Ajout onerror au cas où l'image locale n'existe pas encore -->
+                        <img src="20251115_1322_Logo_Finance_Énergie_simple_compose_01ka3qd29me4fr4rsbbdhmn2mz-removebg-preview.png" 
                              alt="Logo Finance & Énergie" 
-                             class="logo-img">
+                             class="logo-img"
+                             onerror="this.style.display='none'; this.parentNode.innerHTML='<i class=\'fas fa-bolt icon-fallback\'></i>'">
                     </div>
                     <h3>Transition Énergétique</h3>
                     <h4>Cointégration & Marchés</h4>
@@ -673,7 +819,7 @@
             </div>
         </section>
 
-        <!-- SECTION CV (Sans emoji) -->
+        <!-- SECTION CV -->
         <section id="cv" style="text-align: center; padding-bottom: 40px;">
             <h2><i class="fas fa-file-contract"></i> Curriculum Vitae</h2>
             <p style="color: var(--text-muted); margin-bottom: 40px; font-size: 1.1rem;">
@@ -709,13 +855,19 @@
         </div>
     </footer>
 
-    <!-- SCRIPT DARK MODE -->
+    <!-- BOUTON SCROLL TOP (AJOUT 5) -->
+    <button id="scrollTopBtn" class="scroll-top" title="Retour en haut">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- SCRIPTS -->
     <script>
+        // 1. THEME MANAGER
         const toggleBtn = document.getElementById('themeToggle');
         const icon = toggleBtn.querySelector('i');
         const htmlElement = document.documentElement;
+        const widgetContainer = document.querySelector('.tradingview-widget-container');
 
-        // Charger le thème sauvegardé
         const savedTheme = localStorage.getItem('theme');
         if (savedTheme) {
             htmlElement.setAttribute('data-theme', savedTheme);
@@ -729,6 +881,9 @@
             htmlElement.setAttribute('data-theme', newTheme);
             localStorage.setItem('theme', newTheme);
             updateIcon(newTheme);
+            
+            // Note: Le widget TradingView nécessite un rechargement pour changer de thème, 
+            // ici on le laisse en "dark" par défaut pour le contraste pro.
         });
 
         function updateIcon(theme) {
@@ -740,6 +895,53 @@
                 icon.classList.add('fa-moon');
             }
         }
+
+        // 2. TYPEWRITER EFFECT (CORRECTED LOGIC)
+        const texts = [
+            "Étudiant en Master 2 Finance",
+            "Analyse des Risques de Marché",
+            "Passionné par la Data & les Marchés Financiers"
+        ];
+        let count = 0;
+        let index = 0;
+        let currentText = '';
+        let letter = '';
+
+        (function type() {
+            if (count === texts.length) {
+                count = 0;
+            }
+            currentText = texts[count];
+            letter = currentText.slice(0, ++index);
+
+            document.getElementById('typewriter').textContent = letter;
+            
+            if (letter.length === currentText.length) {
+                // End of sentence reached
+                count++;
+                index = 0;
+                // Wait 2000ms before starting the next sentence
+                setTimeout(type, 2000);
+            } else {
+                // Continue typing current sentence
+                setTimeout(type, 100);
+            }
+        })();
+
+        // 3. SCROLL TO TOP
+        const scrollTopBtn = document.getElementById('scrollTopBtn');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                scrollTopBtn.classList.add('visible');
+            } else {
+                scrollTopBtn.classList.remove('visible');
+            }
+        });
+
+        scrollTopBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
     </script>
 
 </body>
