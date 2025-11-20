@@ -35,8 +35,8 @@
             --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.1);
             --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.1);
             
-            /* Dégradé Hero Section */
-            --hero-overlay: linear-gradient(135deg, rgba(30, 58, 138, 0.9) 0%, rgba(37, 99, 235, 0.85) 100%);
+            /* Dégradé Hero Section (Overlay sombre pour lisibilité sur image de marché) */
+            --hero-overlay: linear-gradient(135deg, rgba(10, 25, 60, 0.85) 0%, rgba(30, 64, 175, 0.8) 100%);
         }
 
         [data-theme="dark"] {
@@ -57,7 +57,7 @@
             --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.5);
             --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.5);
             
-            --hero-overlay: linear-gradient(135deg, rgba(15, 23, 42, 0.95) 0%, rgba(30, 58, 138, 0.9) 100%);
+            --hero-overlay: linear-gradient(135deg, rgba(15, 23, 42, 0.9) 0%, rgba(30, 58, 138, 0.85) 100%);
         }
 
         /* =========================================
@@ -169,11 +169,11 @@
         .theme-toggle:hover { background: var(--bg-card); border-color: var(--primary); }
 
         /* =========================================
-           5. HERO SECTION
+           5. HERO SECTION (Nouveau background Market Finance)
            ========================================= */
         .hero {
-            /* Image de fond : Graphiques financiers abstraits */
-            background: var(--hero-overlay), url('https://images.unsplash.com/photo-1642543492481-44e81e3914a7?q=80&w=1920&auto=format&fit=crop');
+            /* Image de fond : Écrans de trading / Chandeliers japonais */
+            background: var(--hero-overlay), url('https://images.unsplash.com/photo-1611974765270-ca1258634369?q=80&w=1920&auto=format&fit=crop');
             background-size: cover;
             background-position: center;
             color: white;
@@ -189,7 +189,7 @@
             font-weight: 800;
             margin-bottom: 15px;
             letter-spacing: -1px;
-            text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
         }
 
         .hero p {
@@ -285,7 +285,7 @@
             height: 20px;
             background: var(--primary);
             border-radius: 50%;
-            border: 4px solid var(--bg-body); /* Crée l'effet d'anneau */
+            border: 4px solid var(--bg-body);
             box-shadow: 0 0 0 1px var(--primary);
             transition: background 0.3s;
         }
@@ -347,7 +347,7 @@
             object-position: left;
         }
         
-        /* Icône fallback si pas de logo image */
+        /* Icône fallback */
         .icon-fallback {
             font-size: 2.5rem;
             color: var(--primary);
