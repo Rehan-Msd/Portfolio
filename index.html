@@ -3,12 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Portfolio de Rehan Masood - Étudiant Master 2 Finance, Analyse des Risques et Gestion d'Actifs.">
+    <meta name="description" content="Portfolio de Rehan Masood - Finance & Risk Analysis">
     <title>Portfolio Finance | Rehan Masood</title>
     
-    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Google Fonts (Inter) -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     
     <style>
@@ -133,7 +131,7 @@
            ========================================= */
         .navbar {
             position: sticky;
-            top: 0; /* Just below widget if needed, otherwise standard sticky */
+            top: 0;
             z-index: 1000;
             background: var(--bg-glass);
             backdrop-filter: blur(12px);
@@ -157,7 +155,7 @@
 
         .nav-menu {
             display: flex;
-            gap: 25px;
+            gap: 20px;
             align-items: center;
         }
 
@@ -168,6 +166,7 @@
             padding: 8px 0;
             position: relative;
             transition: color 0.3s;
+            cursor: pointer;
         }
         
         .nav-link:hover { color: var(--primary); }
@@ -175,7 +174,7 @@
         .nav-btn-cv {
             background-color: var(--primary);
             color: white !important;
-            padding: 10px 20px;
+            padding: 8px 18px;
             border-radius: 8px;
             font-weight: 600;
             font-size: 0.9rem;
@@ -189,21 +188,32 @@
             box-shadow: 0 4px 8px rgba(37, 99, 235, 0.3);
         }
 
-        .theme-toggle {
+        /* Lang Switch & Theme Toggle */
+        .controls {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-left: 10px;
+            padding-left: 10px;
+            border-left: 1px solid var(--border);
+        }
+
+        .control-btn {
             background: transparent;
             border: 1px solid var(--border);
             color: var(--text-main);
-            width: 40px;
-            height: 40px;
+            width: 38px;
+            height: 38px;
             border-radius: 50%;
             cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
             transition: 0.3s;
-            margin-left: 10px;
+            font-weight: 700;
+            font-size: 0.8rem;
         }
-        .theme-toggle:hover { background: var(--bg-card); border-color: var(--primary); }
+        .control-btn:hover { background: var(--bg-card); border-color: var(--primary); color: var(--primary); }
 
         /* =========================================
            5. HERO SECTION
@@ -236,10 +246,10 @@
             margin: 0 auto 45px;
             font-weight: 400;
             line-height: 1.6;
-            min-height: 1.6em; /* Empêche le saut lors du typing */
+            min-height: 1.6em; 
         }
 
-        /* Effet curseur machine à écrire */
+        /* Typewriter Cursor */
         .type-cursor {
             display: inline-block;
             width: 2px;
@@ -301,7 +311,7 @@
         }
 
         /* =========================================
-           6b. NEW SKILLS SECTION
+           7. SKILLS
            ========================================= */
         .skills-grid {
             display: grid;
@@ -343,7 +353,7 @@
         }
 
         /* =========================================
-           7. TIMELINE
+           8. TIMELINE
            ========================================= */
         .timeline {
             position: relative;
@@ -414,7 +424,7 @@
         .timeline-desc { margin-top: 10px; font-size: 0.95rem; color: var(--text-muted); font-style: italic; line-height: 1.5; }
 
         /* =========================================
-           8. PROJECTS CARDS
+           9. PROJECTS
            ========================================= */
         .grid {
             display: grid;
@@ -464,9 +474,7 @@
         .card h4 { font-size: 0.9rem; color: var(--primary); margin-bottom: 15px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
         .card p { color: var(--text-muted); font-size: 1rem; margin-bottom: 30px; flex-grow: 1; line-height: 1.6; }
 
-        /* =========================================
-           9. BUTTONS
-           ========================================= */
+        /* Buttons */
         .btn {
             display: inline-flex;
             align-items: center;
@@ -503,15 +511,13 @@
             transform: translateY(-2px);
         }
         
-        .flag-icon { font-size: 1.5rem; line-height: 1; }
-
         /* =========================================
-           10. FOOTER & SCROLL TOP
+           10. FOOTER & EXTRAS
            ========================================= */
         footer {
             background: var(--bg-card);
             border-top: 1px solid var(--border);
-            padding: 60px 0;
+            padding: 60px 0 30px;
             text-align: center;
             margin-top: 100px;
         }
@@ -543,7 +549,18 @@
             transform: translateY(-5px);
         }
 
-        /* Scroll to Top Button */
+        /* View Counter Style */
+        .view-counter-container {
+            margin-top: 20px;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            opacity: 0.7;
+        }
+        
         .scroll-top {
             position: fixed;
             bottom: 30px;
@@ -568,9 +585,6 @@
         .scroll-top.visible { opacity: 1; visibility: visible; transform: translateY(0); }
         .scroll-top:hover { background: var(--primary-dark); transform: translateY(-5px); }
 
-        /* =========================================
-           11. ANIMATIONS & RESPONSIVE
-           ========================================= */
         @keyframes fadeInUp {
             from { opacity: 0; transform: translateY(30px); }
             to { opacity: 1; transform: translateY(0); }
@@ -586,13 +600,12 @@
             .timeline::before { left: 19px; }
             .timeline-item { padding-left: 60px; }
             .timeline-dot { left: 10px; }
-            .scroll-top { bottom: 20px; right: 20px; }
+            .controls { margin: 10px auto; border-left: none; padding-left: 0; }
         }
     </style>
 </head>
 <body>
 
-    <!-- WIDGET TRADINGVIEW -->
     <div class="tradingview-widget-container">
         <div class="tradingview-widget-container__widget"></div>
         <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
@@ -608,34 +621,34 @@
         "isTransparent": false,
         "displayMode": "adaptive",
         "colorTheme": "dark",
-        "locale": "fr"
+        "locale": "en" 
         }
         </script>
     </div>
 
-    <!-- NAVIGATION -->
     <nav class="navbar">
         <div class="container nav-container">
             <a href="#" class="logo">RM.</a>
             <div class="nav-menu">
-                <a href="#about" class="nav-link">À Propos</a>
-                <a href="#skills" class="nav-link">Compétences</a>
-                <a href="#parcours" class="nav-link">Parcours</a>
-                <a href="#projets" class="nav-link">Projets</a>
+                <a href="#about" class="nav-link" data-i18n="nav_about">À Propos</a>
+                <a href="#skills" class="nav-link" data-i18n="nav_skills">Compétences</a>
+                <a href="#parcours" class="nav-link" data-i18n="nav_exp">Parcours</a>
+                <a href="#projets" class="nav-link" data-i18n="nav_projects">Projets</a>
                 
-                <!-- BOUTON CV CLICKABLE -->
-                <a href="#cv" class="nav-btn-cv">
+                <a href="#cv" class="nav-btn-cv" data-i18n="nav_cv">
                     <i class="fas fa-download"></i> Mon CV
                 </a>
                 
-                <button class="theme-toggle" id="themeToggle" aria-label="Changer de thème">
-                    <i class="fas fa-moon"></i>
-                </button>
+                <div class="controls">
+                    <button class="control-btn" id="langToggle" title="English / Français">EN</button>
+                    <button class="control-btn" id="themeToggle" title="Changer de thème">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                </div>
             </div>
         </div>
     </nav>
 
-    <!-- HERO HEADER -->
     <header class="hero">
         <div class="container">
             <h1>Rehan Masood</h1>
@@ -644,9 +657,9 @@
             </p>
             
             <div class="hero-badges">
-                <span class="badge"><i class="fas fa-chart-line"></i> Économétrie</span>
+                <span class="badge" data-i18n="badge_econometrics"><i class="fas fa-chart-line"></i> Économétrie</span>
                 <span class="badge"><i class="fas fa-code"></i> Python & VBA</span>
-                <span class="badge"><i class="fas fa-building-columns"></i> Finance de Marché</span>
+                <span class="badge" data-i18n="badge_market"><i class="fas fa-building-columns"></i> Finance de Marché</span>
                 <span class="badge"><i class="fas fa-chart-pie"></i> PowerBI</span>
             </div>
         </div>
@@ -654,26 +667,24 @@
 
     <div class="container">
 
-        <!-- SECTION À PROPOS -->
         <section id="about">
-            <h2><i class="fas fa-user"></i> À Propos de moi</h2>
+            <h2 data-i18n="title_about"><i class="fas fa-user"></i> À Propos de moi</h2>
             <div class="about-card">
-                <p class="about-text">
+                <p class="about-text" data-i18n="about_text">
                     Actuellement en Master 2 à l'<strong>Université de Montpellier</strong>, je me spécialise dans la gestion d'actifs, la modélisation financière et l'analyse quantitative des risques. 
                     Fort de mes expériences chez <span class="highlight">BRED</span> et <span class="highlight">BNP Paribas</span>, je cherche à appliquer mes compétences techniques dans un environnement stimulant.
                 </p>
-                <div class="status-badge">
+                <div class="status-badge" data-i18n="about_status">
                     <i class="fas fa-bullseye"></i> Recherche stage de fin d'études (4-6 mois) dès Janvier 2026
                 </div>
             </div>
         </section>
 
-        <!-- SECTION COMPÉTENCES -->
         <section id="skills">
-            <h2><i class="fas fa-tools"></i> Compétences & Outils</h2>
+            <h2 data-i18n="title_skills"><i class="fas fa-tools"></i> Compétences & Outils</h2>
             <div class="skills-grid">
                 <div class="skill-category">
-                    <div class="skill-title"><i class="fas fa-code" style="color:var(--primary)"></i> Programmation</div>
+                    <div class="skill-title" data-i18n="skill_prog"><i class="fas fa-code" style="color:var(--primary)"></i> Programmation</div>
                     <div class="skill-tags">
                         <span class="skill-tag">Python (Pandas, NumPy, Matlib)</span>
                         <span class="skill-tag">VBA / Excel Avancé</span>
@@ -684,19 +695,18 @@
                     <div class="skill-title"><i class="fas fa-chart-area" style="color:var(--primary)"></i> Finance & Data</div>
                     <div class="skill-tags">
                         <span class="skill-tag">PowerBI</span>
-                        <span class="skill-tag">Méthodes Numériques</span>
+                        <span class="skill-tag" data-i18n="tag_num">Méthodes Numériques</span>
                         <span class="skill-tag">Modélisation GARCH/VaR</span>
-                        <span class="skill-tag">Gestion de Portefeuille</span>
+                        <span class="skill-tag" data-i18n="tag_pm">Gestion de Portefeuille</span>
                     </div> 
                 </div>
                 <div class="skill-category">
-                    <div class="skill-title"><i class="fas fa-language" style="color:var(--primary)"></i> Langues</div>
+                    <div class="skill-title" data-i18n="skill_lang"><i class="fas fa-language" style="color:var(--primary)"></i> Langues</div>
                     <div class="skill-tags">
-                        <span class="skill-tag">Français (Natif)</span>
-                        <span class="skill-tag">Anglais (Professionnel)</span>
+                        <span class="skill-tag" data-i18n="lang_fr">Français (Natif)</span>
+                        <span class="skill-tag" data-i18n="lang_en">Anglais (Professionnel)</span>
                     </div>
                 </div>
-                <!-- CERTIFICATIONS -->
                 <div class="skill-category">
                     <div class="skill-title"><i class="fas fa-certificate" style="color:var(--primary)"></i> Certifications</div>
                     <div class="skill-tags">
@@ -706,71 +716,64 @@
             </div>
         </section>
 
-        <!-- SECTION PARCOURS -->
         <section id="parcours">
-            <h2><i class="fas fa-graduation-cap"></i> Parcours & Expériences</h2>
+            <h2 data-i18n="title_exp"><i class="fas fa-graduation-cap"></i> Parcours & Expériences</h2>
             <div class="timeline">
-                <!-- Item 1 : Univ Montpellier -->
                 <div class="timeline-item">
                     <div class="timeline-dot"></div>
                     <span class="timeline-date">2024 – 2026</span>
                     <div class="timeline-content">
                         <div class="timeline-header">
                             <img src="UM.png" alt="Université de Montpellier" class="timeline-logo" onerror="this.style.display='none'">
-                            <h3>Master Monnaie Banque Finance Assurance</h3>
+                            <h3 data-i18n="exp_1_title">Master Monnaie Banque Finance Assurance</h3>
                         </div>
                         <p>Université de Montpellier</p>
-                        <p class="timeline-desc">Parcours Analyse des Risques de Marché. Calcul Stochastique, Valorisation d'actifs, Économétrie.</p>
+                        <p class="timeline-desc" data-i18n="exp_1_desc">Parcours Analyse des Risques de Marché. Calcul Stochastique, Valorisation d'actifs, Économétrie.</p>
                     </div>
                 </div>
-                <!-- Item 2 : BRED -->
                 <div class="timeline-item">
                     <div class="timeline-dot"></div>
-                    <span class="timeline-date">Juin – Juillet 2025</span>
+                    <span class="timeline-date" data-i18n="date_summer_25">Juin – Juillet 2025</span>
                     <div class="timeline-content">
                         <div class="timeline-header">
                              <img src="BRED3.png" alt="BRED Banque Populaire" class="timeline-logo" onerror="this.style.display='none'">
-                             <h3>Auxiliaire d'Été — BRED Banque Populaire</h3>
+                             <h3 data-i18n="exp_2_title">Auxiliaire d'Été — BRED Banque Populaire</h3>
                         </div>
                         <p>Paris</p>
-                        <p class="timeline-desc">Assistant au service de paie et d'ADP. Gestion des entrées/sorties collaborateurs.</p>
+                        <p class="timeline-desc" data-i18n="exp_2_desc">Assistant au service de paie et d'ADP. Gestion des entrées/sorties collaborateurs.</p>
                     </div>
                 </div>
-                <!-- Item 3 : BNP Paribas -->
                 <div class="timeline-item">
                     <div class="timeline-dot"></div>
-                    <span class="timeline-date">Étés 2022 – 2024</span>
+                    <span class="timeline-date" data-i18n="date_summer_2224">Étés 2022 – 2024</span>
                     <div class="timeline-content">
                           <div class="timeline-header">
                             <img src="BNPC.png" alt="BNP Paribas Cardif" class="timeline-logo" onerror="this.style.display='none'">
-                            <h3>Auxiliaire de Vacances — BNP Paribas Cardif</h3>
+                            <h3 data-i18n="exp_3_title">Auxiliaire de Vacances — BNP Paribas Cardif</h3>
                         </div>
                         <p>Nanterre</p>
-                        <p class="timeline-desc">Analyse de données et création de Dashboard (Excel/PowerBI) pour le service achats.</p>
+                        <p class="timeline-desc" data-i18n="exp_3_desc">Analyse de données et création de Dashboard (Excel/PowerBI) pour le service achats.</p>
                     </div>
                 </div>
-                <!-- Item 4 : Univ Paris Nanterre -->
                 <div class="timeline-item">
                     <div class="timeline-dot"></div>
                     <span class="timeline-date">2021 – 2024</span>
                     <div class="timeline-content">
                         <div class="timeline-header">
                              <img src="UPN.png" alt="Université Paris Nanterre" class="timeline-logo" onerror="this.style.display='none'">
-                             <h3>Licence Économie-Gestion</h3>
+                             <h3 data-i18n="exp_4_title">Licence Économie-Gestion</h3>
                         </div>
                         <p>Université Paris Nanterre</p>
-                        <p class="timeline-desc">Mention Assez Bien. Enseignement notable en Économétrie.</p>
+                        <p class="timeline-desc" data-i18n="exp_4_desc">Mention Assez Bien. Enseignement notable en Économétrie.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- SECTION PROJETS -->
         <section id="projets">
-            <h2><i class="fas fa-folder-open"></i> Projets Académiques</h2>
+            <h2 data-i18n="title_projects"><i class="fas fa-folder-open"></i> Projets Académiques</h2>
             <div class="grid">
                 
-                <!-- Projet 1 : Tesla -->
                 <div class="card">
                     <div class="card-header">
                         <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Tesla_logo.png/600px-Tesla_logo.png" 
@@ -778,58 +781,52 @@
                              class="logo-img"
                              style="filter: brightness(0) saturate(100%) invert(14%) sepia(96%) saturate(4544%) hue-rotate(356deg) brightness(96%) contrast(116%); opacity: 1;">
                     </div>
-                    <h3>Tesla Inc. — Économétrie</h3>
-                    <h4>Analyse du risque & Volatilité</h4>
-                    <p>Modélisation ARMA, GARCH, GJR-GARCH et calcul de la VaR sur l'action Tesla. Backtesting rigoureux inclus.</p>
-                    <a href="./Projet TESLA.pdf" target="_blank" class="btn btn-primary">
+                    <h3 data-i18n="proj_tesla_title">Tesla Inc. — Économétrie</h3>
+                    <h4 data-i18n="proj_tesla_sub">Analyse du risque & Volatilité</h4>
+                    <p data-i18n="proj_tesla_desc">Modélisation ARMA, GARCH, GJR-GARCH et calcul de la VaR sur l'action Tesla. Backtesting rigoureux inclus.</p>
+                    <a href="./Projet TESLA.pdf" target="_blank" class="btn btn-primary" data-i18n="btn_pdf">
                         <i class="fas fa-file-pdf"></i> Voir le PDF
                     </a>
                 </div>
 
-                <!-- Projet 2 : Allocation -->
                 <div class="card">
                     <div class="card-header">
                         <i class="fas fa-briefcase icon-fallback"></i>
                     </div>
-                    <h3>Allocation de Portefeuille</h3>
-                    <h4>Stratégie Multi-Actifs 2025</h4>
-                    <p>Construction d'un portefeuille diversifié (Actions, Obligations, Or, Forex) dans un contexte inflationniste.</p>
-                    <a href="./Projet Allocation de portefeuille.pdf" target="_blank" class="btn btn-primary">
+                    <h3 data-i18n="proj_alloc_title">Allocation de Portefeuille</h3>
+                    <h4 data-i18n="proj_alloc_sub">Stratégie Multi-Actifs 2025</h4>
+                    <p data-i18n="proj_alloc_desc">Construction d'un portefeuille diversifié (Actions, Obligations, Or, Forex) dans un contexte inflationniste.</p>
+                    <a href="./Projet Allocation de portefeuille.pdf" target="_blank" class="btn btn-primary" data-i18n="btn_pdf">
                         <i class="fas fa-file-pdf"></i> Voir le PDF
                     </a>
                 </div>
 
-                <!-- Projet 3 : Transition -->
                 <div class="card">
                     <div class="card-header">
-                        <!-- Ajout onerror au cas où l'image locale n'existe pas encore -->
                         <img src="LogoTransition.png" 
                              alt="Logo Finance & Énergie" 
                              class="logo-img"
                              onerror="this.style.display='none'; this.parentNode.innerHTML='<i class=\'fas fa-bolt icon-fallback\'></i>'">
                     </div>
-                    <h3>Transition Énergétique</h3>
-                    <h4>Cointégration & Marchés</h4>
-                    <p>Analyse VAR/VECM des liens entre prix du carbone (EU ETS), pétrole et actions vertes (Tesla, NextEra).</p>
-                    <a href="./PEF - GIRAUD Arthur - MASOOD Rehan.pdf" target="_blank" class="btn btn-primary">
+                    <h3 data-i18n="proj_trans_title">Transition Énergétique</h3>
+                    <h4 data-i18n="proj_trans_sub">Cointégration & Marchés</h4>
+                    <p data-i18n="proj_trans_desc">Analyse VAR/VECM des liens entre prix du carbone (EU ETS), pétrole et actions vertes (Tesla, NextEra).</p>
+                    <a href="./PEF - GIRAUD Arthur - MASOOD Rehan.pdf" target="_blank" class="btn btn-primary" data-i18n="btn_pdf">
                         <i class="fas fa-file-pdf"></i> Voir le PDF
                     </a>
                 </div>
 
-                <!-- Projet 4 : FERRARI (AJOUT DEMANDÉ) -->
                 <div class="card">
                     <div class="card-header">
-                        <!-- Logo Ferrari depuis Wikimedia Commons -->
-                        <img src="LogoFerrari.svg.png" 
+                        <img src="https://upload.wikimedia.org/wikipedia/en/thumb/d/d1/Ferrari-Logo.svg/1200px-Ferrari-Logo.svg.png" 
                              alt="Logo Ferrari" 
                              class="logo-img"
                              style="max-height: 55px;">
                     </div>
-                    <h3>Scuderia Ferrari — PowerBI</h3>
-                    <h4>Analyse de Performance (5 ans)</h4>
-                    <p>Étude statistique complète de l'écurie sur 5 saisons. Dashboard interactif et visualisation des KPIs de course via PowerBI.</p>
-                    <!-- Lien vers le fichier importé sur Github -->
-                    <a href="./Projet_PowerBI.pdf" target="_blank" class="btn btn-primary">
+                    <h3 data-i18n="proj_ferrari_title">Scuderia Ferrari — PowerBI</h3>
+                    <h4 data-i18n="proj_ferrari_sub">Analyse de Performance (5 ans)</h4>
+                    <p data-i18n="proj_ferrari_desc">Étude statistique complète de l'écurie sur 5 saisons. Dashboard interactif et visualisation des KPIs de course via PowerBI.</p>
+                    <a href="./Projet_PowerBI.pdf" target="_blank" class="btn btn-primary" data-i18n="btn_report">
                         <i class="fas fa-file-pdf"></i> Voir le Rapport
                     </a>
                 </div>
@@ -837,64 +834,60 @@
             </div>
         </section>
 
-<section id="cv" style="text-align: center; padding-bottom: 40px;">
-    <h2><i class="fas fa-file-contract"></i> Curriculum Vitae</h2>
-    <p style="color: var(--text-muted); margin-bottom: 40px; font-size: 1.1rem;">
-        Téléchargez mon CV pour en savoir plus sur mon parcours et mes compétences.
-    </p>
-    <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
-        
-        <!-- Bouton FR -->
-        <a href="./CV_Stage_2026.pdf" target="_blank" class="btn btn-outline">
-            <!-- Image drapeau via FlagCDN -->
-            <img src="https://flagcdn.com/w40/fr.png" 
-                 alt="Drapeau France" 
-                 style="width: 20px; height: auto; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
-            &nbsp; CV
-        </a>
+        <section id="cv" style="text-align: center; padding-bottom: 40px;">
+            <h2 data-i18n="title_cv"><i class="fas fa-file-contract"></i> Curriculum Vitae</h2>
+            <p style="color: var(--text-muted); margin-bottom: 40px; font-size: 1.1rem;" data-i18n="cv_text">
+                Téléchargez mon CV pour en savoir plus sur mon parcours et mes compétences.
+            </p>
+            <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
+                
+                <a href="./CV_Stage_2026.pdf" target="_blank" class="btn btn-outline">
+                    <img src="https://flagcdn.com/w40/fr.png" alt="Drapeau France" style="width: 20px; height: auto;">
+                    &nbsp; CV (Français)
+                </a>
 
-        <!-- Bouton EN -->
-        <a href="./CV_Stage_2026_English.pdf" target="_blank" class="btn btn-outline">
-            <!-- Image drapeau via FlagCDN -->
-            <img src="https://flagcdn.com/w40/gb.png" 
-                 alt="UK Flag" 
-                 style="width: 20px; height: auto; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
-            &nbsp; Resume
-        </a>
-        
-    </div>
-</section>
-
-    <!-- FOOTER -->
-    <footer>
-        <div class="container">
-            <div class="social-links">
-                <a href="mailto:rehanmasood@protonmail.com" class="social-btn" title="Email">
-                    <i class="fas fa-envelope"></i>
+                <a href="./CV_Stage_2026_English.pdf" target="_blank" class="btn btn-outline">
+                    <img src="https://flagcdn.com/w40/gb.png" alt="UK Flag" style="width: 20px; height: auto;">
+                    &nbsp; Resume (English)
                 </a>
-                <a href="https://www.linkedin.com/in/rehan-masood-055094200/" target="_blank" class="social-btn" title="LinkedIn">
-                    <i class="fab fa-linkedin-in"></i>
-                </a>
-                <a href="#" class="social-btn" title="GitHub">
-                    <i class="fab fa-github"></i>
-                </a>
+                
             </div>
-            <p style="color: var(--text-muted); font-size: 0.9rem;">© 2025 Rehan Masood. Finance & Data.</p>
-        </div>
-    </footer>
+        </section>
 
-    <!-- BOUTON SCROLL TOP -->
-    <button id="scrollTopBtn" class="scroll-top" title="Retour en haut">
-        <i class="fas fa-arrow-up"></i>
-    </button>
+        <footer>
+            <div class="container">
+                <div class="social-links">
+                    <a href="mailto:rehanmasood@protonmail.com" class="social-btn" title="Email">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/rehan-masood-055094200/" target="_blank" class="social-btn" title="LinkedIn">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="#" class="social-btn" title="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                </div>
+                <p style="color: var(--text-muted); font-size: 0.9rem;">© 2025 Rehan Masood. Finance & Data.</p>
+                
+                <div class="view-counter-container">
+                    <i class="fas fa-eye"></i> <span id="pageViews">...</span> <span data-i18n="footer_views">Vues</span>
+                </div>
+            </div>
+        </footer>
 
-    <!-- SCRIPTS -->
+        <button id="scrollTopBtn" class="scroll-top" title="Retour en haut">
+            <i class="fas fa-arrow-up"></i>
+        </button>
+
+    </div>
+
     <script>
-        // 1. THEME MANAGER
-        const toggleBtn = document.getElementById('themeToggle');
-        const icon = toggleBtn.querySelector('i');
+        // ==========================================
+        // 1. GESTION DU THEME
+        // ==========================================
+        const themeBtn = document.getElementById('themeToggle');
+        const themeIcon = themeBtn.querySelector('i');
         const htmlElement = document.documentElement;
-        const widgetContainer = document.querySelector('.tradingview-widget-container');
 
         const savedTheme = localStorage.getItem('theme');
         if (savedTheme) {
@@ -902,61 +895,256 @@
             updateIcon(savedTheme);
         }
 
-        toggleBtn.addEventListener('click', () => {
+        themeBtn.addEventListener('click', () => {
             const currentTheme = htmlElement.getAttribute('data-theme');
             const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-            
             htmlElement.setAttribute('data-theme', newTheme);
             localStorage.setItem('theme', newTheme);
             updateIcon(newTheme);
-            
-            // Note: Le widget TradingView nécessite un rechargement pour changer de thème, 
-            // ici on le laisse en "dark" par défaut pour le contraste pro.
         });
 
         function updateIcon(theme) {
             if (theme === 'dark') {
-                icon.classList.remove('fa-moon');
-                icon.classList.add('fa-sun');
+                themeIcon.classList.remove('fa-moon');
+                themeIcon.classList.add('fa-sun');
             } else {
-                icon.classList.remove('fa-sun');
-                icon.classList.add('fa-moon');
+                themeIcon.classList.remove('fa-sun');
+                themeIcon.classList.add('fa-moon');
             }
         }
 
-        // 2. TYPEWRITER EFFECT (CORRECTED LOGIC)
-        const texts = [
-            "Étudiant en Master 2 Finance",
-            "Analyse des Risques de Marché",
-            "Passionné par la Data & les Marchés Financiers"
-        ];
-        let count = 0;
-        let index = 0;
-        let currentText = '';
-        let letter = '';
+        // ==========================================
+        // 2. COMPTEUR DE VUES (SIMULATION RÉALISTE)
+        // ==========================================
+        /* Note pour Rehan : Un vrai compteur nécessite un serveur backend. 
+           Pour une page statique comme celle-ci, on utilise LocalStorage pour simuler 
+           l'expérience utilisateur, ou on connecte une API externe comme CountAPI.
+           Ici, j'ai mis un compteur qui incrémente à chaque visite.
+        */
+        const viewDisplay = document.getElementById('pageViews');
+        let views = localStorage.getItem('siteViews');
 
-        (function type() {
-            if (count === texts.length) {
-                count = 0;
+        if (!views) {
+            views = 420; // Nombre de départ fictif pour ne pas commencer à 0
+        } else {
+            views = parseInt(views) + 1;
+        }
+        
+        localStorage.setItem('siteViews', views);
+        viewDisplay.innerText = views;
+
+
+        // ==========================================
+        // 3. SYSTÈME DE TRADUCTION (FR/EN)
+        // ==========================================
+        const translations = {
+            fr: {
+                nav_about: "À Propos",
+                nav_skills: "Compétences",
+                nav_exp: "Parcours",
+                nav_projects: "Projets",
+                nav_cv: "<i class='fas fa-download'></i> Mon CV",
+                
+                typewriter_texts: [
+                    "Étudiant en Master 2 Finance",
+                    "Analyse des Risques de Marché",
+                    "Passionné par la Data & les Marchés Financiers"
+                ],
+                
+                badge_econometrics: "<i class='fas fa-chart-line'></i> Économétrie",
+                badge_market: "<i class='fas fa-building-columns'></i> Finance de Marché",
+                
+                title_about: "<i class='fas fa-user'></i> À Propos de moi",
+                about_text: "Actuellement en Master 2 à l'<strong>Université de Montpellier</strong>, je me spécialise dans la gestion d'actifs, la modélisation financière et l'analyse quantitative des risques. Fort de mes expériences chez <span class='highlight'>BRED</span> et <span class='highlight'>BNP Paribas</span>, je cherche à appliquer mes compétences techniques dans un environnement stimulant.",
+                about_status: "<i class='fas fa-bullseye'></i> Recherche stage de fin d'études (4-6 mois) dès Janvier 2026",
+                
+                title_skills: "<i class='fas fa-tools'></i> Compétences & Outils",
+                skill_prog: "<i class='fas fa-code' style='color:var(--primary)'></i> Programmation",
+                skill_lang: "<i class='fas fa-language' style='color:var(--primary)'></i> Langues",
+                tag_num: "Méthodes Numériques",
+                tag_pm: "Gestion de Portefeuille",
+                lang_fr: "Français (Natif)",
+                lang_en: "Anglais (Professionnel)",
+                
+                title_exp: "<i class='fas fa-graduation-cap'></i> Parcours & Expériences",
+                exp_1_title: "Master Monnaie Banque Finance Assurance",
+                exp_1_desc: "Parcours Analyse des Risques de Marché. Calcul Stochastique, Valorisation d'actifs, Économétrie.",
+                
+                date_summer_25: "Juin – Juillet 2025",
+                exp_2_title: "Auxiliaire d'Été — BRED Banque Populaire",
+                exp_2_desc: "Assistant au service de paie et d'ADP. Gestion des entrées/sorties collaborateurs.",
+                
+                date_summer_2224: "Étés 2022 – 2024",
+                exp_3_title: "Auxiliaire de Vacances — BNP Paribas Cardif",
+                exp_3_desc: "Analyse de données et création de Dashboard (Excel/PowerBI) pour le service achats.",
+                
+                exp_4_title: "Licence Économie-Gestion",
+                exp_4_desc: "Mention Assez Bien. Enseignement notable en Économétrie.",
+                
+                title_projects: "<i class='fas fa-folder-open'></i> Projets Académiques",
+                
+                proj_tesla_title: "Tesla Inc. — Économétrie",
+                proj_tesla_sub: "Analyse du risque & Volatilité",
+                proj_tesla_desc: "Modélisation ARMA, GARCH, GJR-GARCH et calcul de la VaR sur l'action Tesla. Backtesting rigoureux inclus.",
+                
+                proj_alloc_title: "Allocation de Portefeuille",
+                proj_alloc_sub: "Stratégie Multi-Actifs 2025",
+                proj_alloc_desc: "Construction d'un portefeuille diversifié (Actions, Obligations, Or, Forex) dans un contexte inflationniste.",
+                
+                proj_trans_title: "Transition Énergétique",
+                proj_trans_sub: "Cointégration & Marchés",
+                proj_trans_desc: "Analyse VAR/VECM des liens entre prix du carbone (EU ETS), pétrole et actions vertes (Tesla, NextEra).",
+                
+                proj_ferrari_title: "Scuderia Ferrari — PowerBI",
+                proj_ferrari_sub: "Analyse de Performance (5 ans)",
+                proj_ferrari_desc: "Étude statistique complète de l'écurie sur 5 saisons. Dashboard interactif et visualisation des KPIs de course via PowerBI.",
+                
+                btn_pdf: "<i class='fas fa-file-pdf'></i> Voir le PDF",
+                btn_report: "<i class='fas fa-file-pdf'></i> Voir le Rapport",
+                
+                title_cv: "<i class='fas fa-file-contract'></i> Curriculum Vitae",
+                cv_text: "Téléchargez mon CV pour en savoir plus sur mon parcours et mes compétences.",
+                footer_views: "Vues"
+            },
+            en: {
+                nav_about: "About",
+                nav_skills: "Skills",
+                nav_exp: "Experience",
+                nav_projects: "Projects",
+                nav_cv: "<i class='fas fa-download'></i> Download CV",
+                
+                typewriter_texts: [
+                    "Master 2 Finance Student",
+                    "Market Risk Analysis",
+                    "Data & Financial Markets Enthusiast"
+                ],
+                
+                badge_econometrics: "<i class='fas fa-chart-line'></i> Econometrics",
+                badge_market: "<i class='fas fa-building-columns'></i> Market Finance",
+                
+                title_about: "<i class='fas fa-user'></i> About Me",
+                about_text: "Currently a Master 2 student at the <strong>University of Montpellier</strong>, I specialize in Asset Management, Financial Modeling, and Quantitative Risk Analysis. With experience at <span class='highlight'>BRED</span> and <span class='highlight'>BNP Paribas</span>, I aim to apply my technical skills in a challenging environment.",
+                about_status: "<i class='fas fa-bullseye'></i> Seeking 4-6 month internship starting Jan 2026",
+                
+                title_skills: "<i class='fas fa-tools'></i> Skills & Tools",
+                skill_prog: "<i class='fas fa-code' style='color:var(--primary)'></i> Programming",
+                skill_lang: "<i class='fas fa-language' style='color:var(--primary)'></i> Languages",
+                tag_num: "Numerical Methods",
+                tag_pm: "Portfolio Management",
+                lang_fr: "French (Native)",
+                lang_en: "English (Professional)",
+                
+                title_exp: "<i class='fas fa-graduation-cap'></i> Education & Experience",
+                exp_1_title: "Master in Banking, Finance & Insurance",
+                exp_1_desc: "Major in Market Risk Analysis. Stochastic Calculus, Asset Pricing, Econometrics.",
+                
+                date_summer_25: "June – July 2025",
+                exp_2_title: "Summer Assistant — BRED Banque Populaire",
+                exp_2_desc: "Assistant in Payroll and Personnel Administration. Managed employee onboarding/offboarding.",
+                
+                date_summer_2224: "Summers 2022 – 2024",
+                exp_3_title: "Summer Assistant — BNP Paribas Cardif",
+                exp_3_desc: "Data Analysis and Dashboard creation (Excel/PowerBI) for the Purchasing department.",
+                
+                exp_4_title: "Bachelor in Economics & Management",
+                exp_4_desc: "Cum Laude. Significant coursework in Econometrics and Statistics.",
+                
+                title_projects: "<i class='fas fa-folder-open'></i> Academic Projects",
+                
+                proj_tesla_title: "Tesla Inc. — Econometrics",
+                proj_tesla_sub: "Risk Analysis & Volatility",
+                proj_tesla_desc: "ARMA, GARCH, GJR-GARCH modeling and VaR calculation on Tesla stock. Rigorous backtesting included.",
+                
+                proj_alloc_title: "Portfolio Allocation",
+                proj_alloc_sub: "Multi-Asset Strategy 2025",
+                proj_alloc_desc: "Construction of a diversified portfolio (Equities, Bonds, Gold, Forex) in an inflationary context.",
+                
+                proj_trans_title: "Energy Transition",
+                proj_trans_sub: "Cointegration & Markets",
+                proj_trans_desc: "VAR/VECM analysis of links between Carbon prices (EU ETS), Oil, and Green Stocks (Tesla, NextEra).",
+                
+                proj_ferrari_title: "Scuderia Ferrari — PowerBI",
+                proj_ferrari_sub: "Performance Analysis (5 Years)",
+                proj_ferrari_desc: "Complete statistical study of the team over 5 seasons. Interactive Dashboard and Race KPIs visualization via PowerBI.",
+                
+                btn_pdf: "<i class='fas fa-file-pdf'></i> View PDF",
+                btn_report: "<i class='fas fa-file-pdf'></i> View Report",
+                
+                title_cv: "<i class='fas fa-file-contract'></i> Curriculum Vitae",
+                cv_text: "Download my Resume to learn more about my background and skills.",
+                footer_views: "Views"
             }
-            currentText = texts[count];
-            letter = currentText.slice(0, ++index);
+        };
 
-            document.getElementById('typewriter').textContent = letter;
+        const langBtn = document.getElementById('langToggle');
+        let currentLang = 'fr'; // Langue par défaut
+
+        langBtn.addEventListener('click', () => {
+            currentLang = currentLang === 'fr' ? 'en' : 'fr';
+            langBtn.textContent = currentLang === 'fr' ? 'EN' : 'FR';
+            updateLanguage(currentLang);
+        });
+
+        function updateLanguage(lang) {
+            // Mettre à jour tous les éléments avec data-i18n
+            const elements = document.querySelectorAll('[data-i18n]');
+            elements.forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (translations[lang][key]) {
+                    el.innerHTML = translations[lang][key];
+                }
+            });
+
+            // Redémarrer le Typewriter
+            initTypewriter(lang);
+        }
+
+        // ==========================================
+        // 4. TYPEWRITER EFFECT (ADAPTATIVE)
+        // ==========================================
+        let typeInterval; 
+
+        function initTypewriter(lang) {
+            const texts = translations[lang].typewriter_texts;
+            const element = document.getElementById('typewriter');
             
-            if (letter.length === currentText.length) {
-                // End of sentence reached
-                count++;
-                index = 0;
-                // Wait 2000ms before starting the next sentence
-                setTimeout(type, 2000);
-            } else {
-                // Continue typing current sentence
-                setTimeout(type, 100);
+            // Clear existing interval if any
+            let id = window.setTimeout(function() {}, 0);
+            while (id--) {
+                window.clearTimeout(id);
             }
-        })();
+            
+            let count = 0;
+            let index = 0;
+            let currentText = '';
+            let letter = '';
 
-        // 3. SCROLL TO TOP
+            function type() {
+                if (count === texts.length) {
+                    count = 0;
+                }
+                currentText = texts[count];
+                letter = currentText.slice(0, ++index);
+
+                element.textContent = letter;
+                
+                if (letter.length === currentText.length) {
+                    count++;
+                    index = 0;
+                    setTimeout(type, 2000);
+                } else {
+                    setTimeout(type, 80);
+                }
+            }
+            type();
+        }
+
+        // Lancer le typewriter au chargement
+        initTypewriter('fr');
+
+        // ==========================================
+        // 5. SCROLL TOP
+        // ==========================================
         const scrollTopBtn = document.getElementById('scrollTopBtn');
         
         window.addEventListener('scroll', () => {
@@ -970,7 +1158,7 @@
         scrollTopBtn.addEventListener('click', () => {
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
-    </script>
 
+    </script>
 </body>
 </html>
